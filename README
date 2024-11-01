@@ -1,0 +1,32 @@
+Potrzebny jest Python 3.x, LLVM, Clang, Lark, argparse
+Lark jest biblioteką pythona do parsowania kodu
+
+
+
+Wymagane narzędzia:
+    Python 3.x:
+        Lark        -pip install lark
+        argparse
+    LLVM:
+        llvm-as
+        llvm-link
+        lli
+    
+
+
+Instrukcja kompilacji:
+    wykonaj "make" w katalogu głównym
+    
+
+Instrukcja uruchamiania:
+    $make                                       tworzy dwa skrypty insc_jvm i insc_llvm
+
+    $./insc_llvm foo/bar/<nazwa_pliku>.ins      parsuje plik .ins na .ll, 
+                                                kompiluje dzięki Clang na plik .bc
+                                                oraz uruchamia plik .bc
+
+    $./insc_jvm foo/bar/<nazwa_pliku>.ins       parsuje plik .ins na .j, 
+                                                kompiluje dzięki Jasmin.jar na plik .class oraz 
+                                                tworzy skrypt do włączenia programu
+                                                następnie skrypt "<nazwa_pliku>" uruchamia 
+                                                plik wykonywalny javy
